@@ -1,0 +1,45 @@
+.sidebar {
+  background: #ffffff;
+  color: #545585;
+}
+
+.sidebar {
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.sidebar .nav-link {
+  color: #010219;
+  min-height: 45px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e8f0fe;
+  color: #545585;
+}
+
+.sidebar-sticky {
+  padding-top: 20px;
+}
+
+.nav-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #e8f0fe;
+  border-radius: 6px;
+}
+
+.active {
+  background-color: #e8f0fe;
+}

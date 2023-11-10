@@ -1,0 +1,47 @@
+<nav class="col-md-2 d-none d-md-block sidebar w-100">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/product/list" routerLinkActive="active"
+          >Products</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="category/list" routerLinkActive="active"
+          >Categories</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/subCategory/list"
+          routerLinkActive="active"
+          >Subcategories</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user/list" routerLinkActive="active"
+          >Users</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/order/list" routerLinkActive="active"
+          >Orders</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="roleAuthService.hasUserRole('User') | async">
+        <a class="nav-link" routerLink="/cart/list" routerLinkActive="active"
+          >Cart</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="roleAuthService.hasUserRole('User') | async">
+        <a
+          class="nav-link"
+          routerLink="/wishList/list"
+          routerLinkActive="active"
+          >WishList</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

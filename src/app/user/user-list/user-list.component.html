@@ -1,0 +1,11 @@
+<ng-container *ngIf="users?.length > 0; else loading">
+  <app-generic-list
+    [items]="users"
+    tableHeading="Users"
+    routerUrlAdd="user/signup"
+    routerUrlEdit="user/edit"
+    (delete)="delete($event)"
+  >
+  </app-generic-list>
+</ng-container>
+<ng-template #loading>Loading...</ng-template>

@@ -1,0 +1,157 @@
+<app-form-card-container [formHeading]="'Sign Up'">
+  <div class="container">
+    <div class="row">
+      <div>
+        <form (ngSubmit)="onSubmit(signUpForm)" #signUpForm="ngForm">
+          <div id="user-data">
+            <div class="form-group my-3">
+              <label for="">Username</label>
+              <input
+                type="text"
+                id="username"
+                class="form-control"
+                ngModel
+                name="username"
+                #username="ngModel"
+                required
+                minlength="3"
+                maxlength="10"
+                pattern="[a-zA-Z]*"
+              />
+              <small id="usernameHelp" class="form-text text-muted"
+                >Username should be 3-10 characters long and only contain
+                letters.</small
+              >
+              <br />
+              <span
+                class="help-block text-danger"
+                *ngIf="username.invalid && username.touched"
+              >
+                {{ formErrorService.getErrorMessage(username) }}
+              </span>
+            </div>
+            <div class="form-group my-3">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                ngModel
+                name="email"
+                required
+                email
+                #email="ngModel"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >Please enter a valid email.</small
+              >
+              <br />
+              <span
+                class="help-block text-danger"
+                *ngIf="email.invalid && email.touched"
+              >
+                {{ formErrorService.getErrorMessage(email) }}
+              </span>
+            </div>
+            <div class="form-group my-3">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                ngModel
+                name="password"
+                #password="ngModel"
+                required
+                minlength="8"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}"
+              />
+              <small id="passwordHelp" class="form-text text-muted"
+                >Password should be at least 8 characters long and contain at
+                least one digit, one lowercase letter, one uppercase letter and
+                one special character.</small
+              >
+              <br />
+              <span
+                class="help-block text-danger"
+                *ngIf="password.invalid && password.touched"
+              >
+                {{ formErrorService.getErrorMessage(password) }}
+              </span>
+            </div>
+            <div class="form-group my-3">
+              <label for="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                class="form-control"
+                ngModel
+                #fname="ngModel"
+                name="fname"
+                required
+              />
+              <small id="fnameHelp" class="form-text text-muted"
+                >Please enter your first name.</small
+              >
+              <br />
+              <span
+                class="help-block text-danger"
+                *ngIf="fname.invalid && fname.touched"
+              >
+                {{ formErrorService.getErrorMessage(fname) }}
+              </span>
+            </div>
+            <div class="form-group my-3">
+              <label for="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                class="form-control"
+                ngModel
+                #lname="ngModel"
+                name="lname"
+                required
+              />
+              <small id="lnameHelp" class="form-text text-muted"
+                >Please enter your last name.</small
+              >
+              <br />
+              <span
+                class="help-block text-danger"
+                *ngIf="lname.invalid && lname.touched"
+              >
+                {{ formErrorService.getErrorMessage(lname) }}
+              </span>
+            </div>
+            <div class="form-group my-3">
+              <label for="phone">Phone Number</label>
+              <input
+                type="text"
+                id="phone"
+                class="form-control"
+                ngModel
+                name="phone"
+                #phone="ngModel"
+                required
+                pattern="^\+?\d{0,13}"
+              />
+              <small id="phoneHelp" class="form-text text-muted"
+                >Please enter your phone number.</small
+              >
+              <br />
+              <span
+                class="help-block text-danger"
+                *ngIf="phone.invalid && phone.touched"
+              >
+                {{ formErrorService.getErrorMessage(phone) }}
+              </span>
+            </div>
+          </div>
+          <button class="btn btn-primary" [disabled]="!signUpForm.valid">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-form-card-container>

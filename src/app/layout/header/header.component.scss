@@ -1,0 +1,23 @@
+.navbar {
+  background: #e8f0fe;
+  color: #545585;
+}
+
+.navbar {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  margin-left: 10px;
+}
+
+.navbar .user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: #545585;
+}

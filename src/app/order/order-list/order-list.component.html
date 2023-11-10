@@ -1,0 +1,11 @@
+<ng-container *ngIf="orders?.length > 0; else loading">
+  <app-generic-list
+    [items]="orders"
+    tableHeading="Orders"
+    routerUrlAdd="order/add"
+    routerUrlEdit="order/edit"
+    (delete)="delete($event)"
+  >
+  </app-generic-list>
+</ng-container>
+<ng-template #loading>Loading...</ng-template>

@@ -1,0 +1,51 @@
+<div
+  class="d-flex align-items-center"
+  style="margin-bottom: 20px; margin-top: 20px"
+>
+  <h1 style="margin: 0">{{ tableHeading }}</h1>
+  <div
+    style="margin-left: 15px"
+    *ngIf="roleAuthService.hasUserRole('Admin') | async"
+  >
+    <a (click)="redirectToAdd()" class="btn btn-primary btn-circle btn-sm">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+</div>
+
+<div *ngIf="items && items.length; else noData">
+  <kendo-grid
+    [data]="gridData"
+    [pageSize]="pageSize"
+    [skip]="skip"
+    [pageable]="true"
+    [filterable]="true"
+    (pageChange)="pageChange($event)"
+  >
+    <kendo-grid-column
+      *ngFor="let key of getObjectKeys(items[0])"
+      [field]="key"
+      [title]="key"
+    ></kendo-grid-column>
+    <kendo-grid-column
+      title="Action"
+      *ngIf="roleAuthService.hasUserRole('Admin') | async"
+    >
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <a (click)="redirectToEdit(dataItem)">
+          <i class="fa fa-pencil" style="color: black"></i>
+        </a>
+        <button
+          (click)="deleteItem(dataItem)"
+          class="btn btn-default delete-category"
+        >
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+</div>
+
+<ng-template #noData>
+  <p>No data yet.</p>
+</ng-template>

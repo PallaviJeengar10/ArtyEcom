@@ -1,0 +1,11 @@
+<ng-container *ngIf="subCategories?.length > 0; else loading">
+  <app-generic-list
+    [items]="subCategories"
+    tableHeading="Sub-Categories"
+    routerUrlAdd="subCategory/add"
+    routerUrlEdit="subCategory/edit"
+    (delete)="delete($event)"
+  >
+  </app-generic-list>
+</ng-container>
+<ng-template #loading>Loading...</ng-template>
