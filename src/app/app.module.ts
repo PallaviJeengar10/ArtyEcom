@@ -13,6 +13,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from 'src/root.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import { environment } from '../environments/environments';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +30,8 @@ import { EffectsModule } from '@ngrx/effects';
     HttpClientModule,
     StoreModule.forRoot(rootReducer),
     EffectsModule.forRoot([]),
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
     {

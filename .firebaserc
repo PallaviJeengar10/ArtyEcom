@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fcm-pts": {
+      "hosting": {
+        "ArtyEcomm": [
+          "fcm-pts"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fcm-pts"
+  }
+}
